@@ -122,23 +122,8 @@ def bndBoxClassifier(visual,thresh):        #Draw contours and lable with number
     widthCount=len(widthMarkersCenter)
     if(widthCount%2!=0):
         widthCount=widthCount+1 #Must be an even number of width markers, corrects for one not picked up due to intersection with other markings
-    #print("There are {} width markers on this runway".format(widthCount))
     bRCorner = (50,visual.shape[1]-50)
     cv2.putText(visual, "{} markers, width is {} m".format(widthCount, runwayWidth(widthCount)), bRCorner, cv2.FONT_HERSHEY_SIMPLEX,0.5, (0, 0, 0), 2)     #Count them, write width at bottom of screen
-
-    #__FIT_A_LINE_TO_RUNWAY_AXIS__#
-    #print(widthMarkersCenter)
-    #widthMarkersCenter=cv2.UMat(np.array(widthMarkersCenter, dtype=np.float32))
-    #print(widthMarkersCenter)
-    #Convert Width markers to a tr<cv::UMat>
-
-
-    #[dx,dy,x,y] = cv2.fitLine(widthMarkersCenter,  cv2.DIST_L2, 0, 0.1, 0.1)
-    #left = int((-x*dy/dx) + y)
-    #right = int(((visual.shape[1]-x)*dy/dx)+y)
-    #cv2.line(visual,(visual.shape[1]-1,right),(0,left),255,2)
-    #Fit line to centers of rectangles
-    #Draw Line, reps runway axis
     return visual
 
     #size

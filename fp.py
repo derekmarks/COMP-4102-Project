@@ -1,8 +1,9 @@
 from funct import *
 
 def visContours(windowName,img):
+    thresh = threshold(img)    #Threshold the image
     contour = bndBoxClassifier(img,thresh)      #The final method for counting threshold markings
-    thresh = threshold(img)                     #Threshold the image
+
     #contour = rangeClassifier(img,thresh)      #Shows how contour set length can be used to filter out undesriable markings
     #contour = visCntsCorners(img,thresh)       #Shows contour detection after thresholding and number of vertex in each contour
     #cv2.imshow(windowName+"_Thresh",thresh)    #Show the thresholded image
