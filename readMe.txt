@@ -5,3 +5,14 @@ Date: 10 Apr 20
 Module Instillation
 pip install --upgrade imutils
 pip install opencv-python
+
+Run Command:
+python fp.py
+
+Files:
+fp.py
+funct.py
+aerial_1.tif
+aerial_2.tif
+aerial_3.tif
+aerial_4.tif
