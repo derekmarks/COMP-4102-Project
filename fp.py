@@ -1,4 +1,5 @@
 from funct import *
+from findScale import *
 
 def visContours(windowName,img):
     thresh = threshold(img)    #Threshold the image
@@ -20,5 +21,17 @@ visContours("Img_2",img_2)
 visContours("Img_3",img_3)
 visContours("Img_4",img_4)
 
+#img_5 = matchit(os.getcwd()+"\\images\\chrome_nhCeo1xNis.jpg")
+img_5, startX, startY, endX, endY = matchit(os.getcwd()+"\\aerials\\JFK.tif")
+img_5 = img_5[startY -200 :endY +200 , startX -200 :endX +200]  
+cv2.imshow("img_5", img_5)
+#visContours("Img_5",img_5) #This is broken because a div by zero occurs in funct line 108
 
 cv2.waitKey(0)
+
+#img_6, startX, startY, endX, endY = matchit(os.getcwd()+"\\aerials\\aerial_1-r.tif")
+#img_6 = img_6[startY:endY,startX:endX] 
+#img_6 = scale_image(img_6,110)   
+#cv2.imshow("img_6", img_6)
+
+#cv2.waitKey(0)
