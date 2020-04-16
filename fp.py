@@ -25,6 +25,7 @@ visContours("Img_4",img_4)
 img_5, startX, startY, endX, endY = matchit(os.getcwd()+"\\aerials\\aerial_1-r.tif", False)
 print("Y: ", (endY +200) - (startY -200) , " X: ", (endX +200) - (startX -200) )
 img_5 = img_5[startY -200 :endY +200 , startX -200 :endX +200]
+img_5 = imutils.rotate_bound(img_5, 60)
 #img_5 = img_5[startY :endY , startX :endX]  
 cv2.imshow("img_5", img_5)
 cv2.waitKey(0)
