@@ -23,9 +23,11 @@ visContours("Img_4",img_4)
 
 #img_5 = matchit(os.getcwd()+"\\images\\chrome_nhCeo1xNis.jpg")
 img_5, startX, startY, endX, endY = matchit(os.getcwd()+"\\aerials\\JFK.tif")
+print("Y: ", (endY +200) - (startY -200) , " X: ", (endX +200) - (startX -200) )
 img_5 = img_5[startY -200 :endY +200 , startX -200 :endX +200]  
 cv2.imshow("img_5", img_5)
-#visContours("Img_5",img_5) #This is broken because a div by zero occurs in funct line 108
+cv2.waitKey(0)
+visContours("Img_5",img_5) #This is broken because a div by zero occurs in funct line 108
 
 cv2.waitKey(0)
 

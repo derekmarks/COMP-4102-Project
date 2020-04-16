@@ -1,4 +1,5 @@
-# 
+#Robin Wohlfarth
+#100 847 725
 
 import numpy as np
 import tifffile as tiff
@@ -10,6 +11,8 @@ import cv2
 # 
 def matchit(imagePath):
 
+	found = None
+
 	# 
 	for templatePath in glob.glob("template" + "/*.png"):
 
@@ -19,7 +22,7 @@ def matchit(imagePath):
 		(tH, tW) = template.shape[:2]
 		#cv2.imshow("Template", template)
 		#cv2.waitKey(0)
-		found = None
+		
 
 		
 		# 
