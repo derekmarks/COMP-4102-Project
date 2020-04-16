@@ -1,8 +1,9 @@
-Author: Derek Marks
-Stu ID: 100 974 560
-Date: 10 Apr 20
+Authors:  Derek Marks       Stu ID: 100 974 560
+          Robin Wohlfarth           100 847 725
+          
+Date: 16 Apr 20
 
-Module Instillation
+Module Instillation:
 pip install --upgrade imutils
 pip install opencv-python
 pip install numpy
