@@ -85,7 +85,7 @@ def rangeClassifier(visual,thresh):        #Draw contours and lable with number 
             cv2.drawContours(visual, [c], -1, (0, 0, 255), 2)                           #Draw the Contour on the origonal image
     for c in cnts:                                                                      #Each contour set
         point=getCentroid(c)                                                            #Get its center
-        cv2.putText(visual, "{}".format(c.size), point, cv2.FONT_HERSHEY_SIMPLEX,0.5, (0, 0, 0), 2) #Write number of vertexes
+        cv2.putText(visual, "{}".format(c.size), point, cv2.FONT_HERSHEY_SIMPLEX,0.5, (250, 0, 0), 2) #Write number of vertexes
     return visual
 
 def rectArea(rect):                             #Takes a rect object, returns its area A=(WxH)
@@ -115,13 +115,13 @@ def bndBoxClassifier(visual,thresh):        #Classifies Chevrons from threshold 
             widthMarkersCenter.append(rect[0])                  #Save the centroid of the contour group
         else:                                   #Classified as chevrons
             cv2.drawContours(visual,[box],0,(255,0,0),2)        #Draw the bounding box in blue
-   
 
 
-    
+
+
     widthCount=len(widthMarkersCenter)  #Count the number of width markers in the width marker array
     if(widthCount%2!=0):                #If there is an odd number of width markers, then round up
         widthCount=widthCount+1 #Must be an even number of width markers, corrects for one not picked up due to intersection with other markings
     bRCorner = (50,visual.shape[1]-50)  #Get the bottom right corner of the image
-    cv2.putText(visual, "{} markers, width is {} m".format(widthCount, runwayWidth(widthCount)), bRCorner, cv2.FONT_HERSHEY_SIMPLEX,0.5, (0, 0, 0), 2)     #Count them, write width at bottom of screen
+    cv2.putText(visual, "{} markers, width is {} m".format(widthCount, runwayWidth(widthCount)), bRCorner, cv2.FONT_HERSHEY_SIMPLEX,0.5, (250, 0, 0), 2)     #Count them, write width at bottom of screen
     return visual       #write the runway width on the images bottom right corner, and return it
