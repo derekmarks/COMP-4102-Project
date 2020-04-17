@@ -1,5 +1,6 @@
 from funct import *
 from findScale import *
+from userRotate import *
 
 def visContours(windowName,img):
     thresh = threshold(img)    #Threshold the image
@@ -22,6 +23,7 @@ visContours("Img_3",img_3)
 visContours("Img_4",img_4)
 
 #img_5 = matchit(os.getcwd()+"\\images\\chrome_nhCeo1xNis.jpg")
+angle = rotateit(os.getcwd()+"\\aerials\\aerial_1-r.tif", 50)
 img_5, startX, startY, endX, endY = matchit(os.getcwd()+"\\aerials\\aerial_1-r.tif", False)
 print("Y: ", (endY +200) - (startY -200) , " X: ", (endX +200) - (startX -200) )
 img_5 = img_5[startY -200 :endY +200 , startX -200 :endX +200]

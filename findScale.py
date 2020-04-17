@@ -3,7 +3,6 @@
 
 import numpy as np
 import tifffile as tiff
-import argparse
 import imutils
 import glob
 import cv2
