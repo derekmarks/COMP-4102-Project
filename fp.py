@@ -7,7 +7,7 @@ def visContours(windowName,img):
 
     #contour = rangeClassifier(img,thresh)      #Shows how contour set length can be used to filter out undesriable markings
     #contour = visCntsCorners(img,thresh)       #Shows contour detection after thresholding and number of vertex in each contour
-    cv2.imshow(windowName+"_Thresh",thresh)    #Show the thresholded image
+    #cv2.imshow(windowName+"_Thresh",thresh)    #Show the thresholded image
     cv2.imshow(windowName, contour)             #Show the contour image
 
 img_1 = loadSample_1()  #Quickly load some image samples wihout using the template finder, for sake of time
