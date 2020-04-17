@@ -21,10 +21,10 @@ visContours("Img_3",img_3)
 visContours("Img_4",img_4)
 
 
-img_5, startX, startY, endX, endY = matchit(os.getcwd()+"\\aerials\\aerial_1-r.tif", False, 0) # Runs the matchit function. This template matches and returns the cordinates of a box that best correlates to the templates
-img_5 = img_5[startY -200 :endY +200 , startX -200 :endX +200] # Takes the box of best correlated, expands its size to include more context in the image and then crops out the rest
-img_5 = imutils.rotate_bound(img_5, 60) # Rotates it 60 degrees to match the original aerial_1
+img_5, startX, startY, endX, endY = matchit(os.getcwd()+"\\aerials\\aerial_1-r.tif", False, 0)  # Runs the matchit function. This template matches and returns the cordinates of a box that best correlates to the templates
+img_5 = img_5[startY -200 :endY +200 , startX -200 :endX +200]                                  # Takes the box of best correlated, expands its size to include more context in the image and then crops out the rest
+img_5 = imutils.rotate_bound(img_5, 60)                                                         # Rotates it 60 degrees to match the original aerial_1
 
-visContours("Img_5",img_5) # Runs the croped and scaled image through the Countours to find its shape
+visContours("Img_5",img_5)                                                                      # Runs the croped and scaled image through the Countours to find its shape
 
 cv2.waitKey(0)
