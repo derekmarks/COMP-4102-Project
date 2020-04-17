@@ -21,7 +21,6 @@ Comp-4102-Project
 |   funct.py
 |   readMe.txt
 |   Tree.txt
-|   userRotate.py
 |   
 +---aerials
 |       aerial_1-r.tif
