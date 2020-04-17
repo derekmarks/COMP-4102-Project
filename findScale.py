@@ -3,17 +3,23 @@
 
 import numpy as np
 import tifffile as tiff
-import argparse
 import imutils
 import glob
 import cv2
 
 # 
-def matchit(imagePath, vis):
+def matchit(imagePath, vis, angle):
 
 	found = None
 
+	image = tiff.imread(imagePath)
+	rot = imutils.rotate_bound(image, angle)
+
+	gray = cv2.cvtColor(rot, cv2.COLOR_BGR2GRAY)
+	ret, gray = cv2.threshold(gray,203,255,cv2.THRESH_BINARY)
+
 	# 
+
 	for templatePath in glob.glob("template" + "/*.png"):
 
 		template = cv2.imread(templatePath)
@@ -23,20 +29,9 @@ def matchit(imagePath, vis):
 
 		if vis:
 			cv2.imshow("Template", template)
-			#cv2.waitKey(0)
-		
+			cv2.waitKey(0)
+	
 
-		
-		# 
-		image = tiff.imread(imagePath)
-		gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-		ret, gray = cv2.threshold(gray,203,255,cv2.THRESH_BINARY)
-
-		#Rotates the image 360/24=15 times
-		#for angle in np.arange(0, 360, 24):
-			#rotated = imutils.rotate_bound(gray, angle)
-			#cv2.imshow("Visualize", rotated)
-			#cv2.waitKey(0)
 
 		# Scales the image 20 times
 		for scale in np.linspace(0.2, 1.0, 20)[::-1]:
@@ -54,7 +49,7 @@ def matchit(imagePath, vis):
 
 			if vis:
 				cv2.imshow("result", result)
-				#cv2.waitKey(0)
+				cv2.waitKey(0)
 
 			if vis:
 				clone = np.dstack([resized, resized, resized])
